@@ -56,9 +56,9 @@ The project is implemented with **Flask** for the web interface and leverages pr
 ## Interface Screenshots  
 
 
-<img width="527" height="211" alt="Image" src="https://github.com/user-attachments/assets/93d5b621-6bba-4c67-9c36-cbf5569920c5" />
+<img width="600" height="400" alt="Image" src="https://github.com/user-attachments/assets/93d5b621-6bba-4c67-9c36-cbf5569920c5" />
 
-<img width="590" height="428" alt="Image" src="https://github.com/user-attachments/assets/fe67951e-7596-4841-984f-419d1aebfbd0" />
+<img width="600" height="400" alt="Image" src="https://github.com/user-attachments/assets/fe67951e-7596-4841-984f-419d1aebfbd0" />
 
 ## Getting Started  
 
