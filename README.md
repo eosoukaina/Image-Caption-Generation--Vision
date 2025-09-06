@@ -33,7 +33,7 @@ The project is implemented with **Flask** for the web interface and leverages pr
 
 ## Model Architecture  
 
-![Image](https://github.com/user-attachments/assets/a0b8f108-ecb3-4eff-9d9b-f87420cad366) 
+![Image](https://github.com/user-attachments/assets/bdd99349-251c-47cb-b126-463c0cfa7bd4)
 
 - **Vision Understanding:** CNN extracts features from the image and converts them into a feature vector.  
 - **Text Generation:** LSTM generates captions sequentially, starting with a *start* token and ending with an *end* token.  
@@ -55,9 +55,10 @@ The project is implemented with **Flask** for the web interface and leverages pr
 
 ## Interface Screenshots  
 
-<img width="550" height="300" alt="Image" src="https://github.com/user-attachments/assets/5c4b7cf3-9501-45ab-9fbe-df39adcd7cf3" />  
 
-<img width="550" height="300" alt="Image" src="https://github.com/user-attachments/assets/24781ef8-e322-449c-8577-0e09de09df41" />
+<img width="527" height="211" alt="Image" src="https://github.com/user-attachments/assets/93d5b621-6bba-4c67-9c36-cbf5569920c5" />
+
+<img width="590" height="428" alt="Image" src="https://github.com/user-attachments/assets/fe67951e-7596-4841-984f-419d1aebfbd0" />
 
 ## Getting Started  
 
