@@ -86,6 +86,9 @@ The **Image Caption Generator** is a production-ready deep learning application 
 │   Caption   │      │    Network   │      │   + Vocab   │
 └─────────────┘      └──────────────┘      └─────────────┘
 ```
+### detailed System Architecture
+
+<img width="611" height="344" alt="Image" src="https://github.com/user-attachments/assets/45627527-60f5-4eda-a57d-17298fb16f2e" />
 
 ### Model Pipeline
 
