@@ -8,7 +8,7 @@
 
 > **AI-powered image caption generation system** that automatically generates descriptive captions for images using deep learning. Built with CNN (Xception) for image feature extraction and LSTM for natural language generation.
 
-![Demo](https://github.com/user-attachments/assets/93d5b621-6bba-4c67-9c36-cbf5569920c5)
+<img width="700" height="439" alt="Image" src="https://github.com/user-attachments/assets/db2b12d5-5a95-40e5-a132-06aa499e31b5" />
 
 ---
 
@@ -222,22 +222,11 @@ Response:
 }
 ```
 
-### Python Integration Example
-
-```python
-import requests
-
-# Upload and get caption
-url = "http://localhost:8080/api/caption"
-files = {"file": open("image.jpg", "rb")}
-response = requests.post(url, files=files)
-
-if response.ok:
-    data = response.json()
-    print(f"Caption: {data['caption']}")
-```
-
 ---
+
+## Demo 
+
+<img width="604" height="433" alt="Image" src="https://github.com/user-attachments/assets/39d19138-1a94-47cd-b8bd-bafd710336a5" />
 
 ## 📂 Project Structure
 
@@ -316,6 +305,22 @@ image-caption-generator/
 
 ---
 
+## 📊 Performance
+
+### Inference Speed
+- **Average**: 2-3 seconds per image
+- **Feature Extraction**: ~1.5 seconds
+- **Caption Generation**: ~0.5 seconds
+
+### System Requirements
+- **Minimum RAM**: 4GB
+- **Recommended RAM**: 8GB+
+- **Disk Space**: 500MB (for models)
+- **CPU**: Multi-core recommended
+- **GPU**: Optional (significant speedup)
+
+---
+
 ## 🌐 Deployment
 
 ### Production Deployment
@@ -349,24 +354,28 @@ docker run -p 8080:8080 image-caption-generator
 - **Google Cloud Run**: Containerized deployment
 - **Azure App Service**: Web app deployment
 
----
 
-## 📊 Performance
-
-### Inference Speed
-- **Average**: 2-3 seconds per image
-- **Feature Extraction**: ~1.5 seconds
-- **Caption Generation**: ~0.5 seconds
-
-### System Requirements
-- **Minimum RAM**: 4GB
-- **Recommended RAM**: 8GB+
-- **Disk Space**: 500MB (for models)
-- **CPU**: Multi-core recommended
-- **GPU**: Optional (significant speedup)
 
 ---
+## Getting Started  
 
+### Prerequisites  
+Make sure you have the following installed:  
+- Python 3.8+  
+- TensorFlow & Keras  
+
+### Clone the Repository  
+```sh
+git clone <repository-url>
+cd <project-directory>
+```
+## Run the App
+```sh
+python app.py
+```
+<div align="center">
+
+---
 ## 🤝 Contributing
 
 Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
@@ -396,18 +405,6 @@ This project follows:
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
-
-## 📧 Contact
-
-**Your Name** - Data Engineer & ML Engineer
-
-- 📧 Email: elhadifi.soukaina@gmail.com
-- 💼 LinkedIn: [Soukaina El Hadifi](https://linkedin.com/in/soukaina-el-hadifi)
-- 🐙 GitHub: [@eosoukaina](https://github.com/eosoukaina)
-- 🌐 Portfolio: [github.com/eosoukaina](https://github.com/eosoukaina)
-
----
-
 ## 🙏 Acknowledgments
 
 - **Flickr8K Dataset** - Training data
@@ -417,56 +414,18 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 📚 References
+## 📧 Contact
 
-1. [Show and Tell: A Neural Image Caption Generator](https://arxiv.org/abs/1411.4555)
-2. [Xception: Deep Learning with Depthwise Separable Convolutions](https://arxiv.org/abs/1610.02357)
-3. [BLEU: a Method for Automatic Evaluation of Machine Translation](https://www.aclweb.org/anthology/P02-1040.pdf)
+For questions or suggestions, feel free to reach out :
+
+- 📧 Email: elhadifi.soukaina@gmail.com
+- 💼 LinkedIn: [Soukaina El Hadifi](https://linkedin.com/in/soukaina-el-hadifi)
+- 🐙 GitHub: [@eosoukaina](https://github.com/eosoukaina)
 
 ---
-
-<div align="center">
   
 **⭐ Star this repository if you find it helpful!**
 
-Made with ❤️ by a passionate Data Engineer
-
 </div>  
 
-📊 **BLEU Score** (Bilingual Evaluation Understudy) is used to evaluate captions.  
-- Score close to **1** → Generated captions match human captions.  
-- Score close to **0** → Captions differ significantly.  
 
-## Interface Screenshots  
-
-
-<img width="600" height="400" alt="Image" src="https://github.com/user-attachments/assets/93d5b621-6bba-4c67-9c36-cbf5569920c5" />
-
-<img width="600" height="400" alt="Image" src="https://github.com/user-attachments/assets/fe67951e-7596-4841-984f-419d1aebfbd0" />
-
-## Getting Started  
-
-### Prerequisites  
-Make sure you have the following installed:  
-- Python 3.8+  
-- TensorFlow & Keras  
-
-### Clone the Repository  
-```sh
-git clone <repository-url>
-cd <project-directory>
-```
-## Run the App
-```sh
-python app.py
-```
-
-## Try the App 🚀
-
-👉 Coming soon with a live Flask deployment!
-
-## Contact
-
-For questions or suggestions, feel free to reach out:
-
-📩 elhadifi.soukaina@gmail.com
