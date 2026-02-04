@@ -3,19 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uploaded Image</title>
+    <meta name="description" content="Generated caption result">
+    <title>Caption Generated - Image Caption Generator</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <div class="container">
-        <h1>Generated Caption</h1>
-        <div class="img-container">
-            <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image" class="img-fluid">
-        </div>
-        <div class="description-container">
-            <p><h1>{{ description }}</h1></p>
-        </div>
-        <a href="/" class="btn">Upload another image</a>
+        <!-- Header -->
+        <header class="header">
+            <h1>✨ Caption Generated</h1>
+            <p>AI has analyzed your image</p>
+        </header>
+
+        <!-- Result Section -->
+        <section class="result-section">
+            <!-- Image Display -->
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='uploads/' + filename) }}" 
+                     alt="Uploaded Image" 
+                     class="uploaded-image">
+            </div>
+
+            <!-- Caption Display -->
+            <div class="caption-container">
+                <span class="caption-label">
+                    <span class="caption-icon">💬</span>
+                    Generated Caption
+                </span>
+                <p class="caption-text">{{ description }}</p>
+            </div>
+
+            <!-- Action Buttons -->
+            <div style="text-align: center; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="/" class="btn">
+                    🔄 Upload Another Image
+                </a>
+                <button onclick="shareCaption()" class="btn btn-secondary">
+                    📋 Copy Caption
+                </button>
+            </div>
+        </section>
+
+        <!-- Additional Info -->
+        <section class="features" style="margin-top: 3rem;">
+            <div class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <h3>AI Model</h3>
+                <p>Xception CNN + LSTM</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Training Dataset</h3>
+                <p>Flickr8K (8,000+ images)</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⭐</div>
+                <h3>Performance</h3>
+                <p>BLEU Score optimized</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Built with TensorFlow, Keras & Flask | 
+                <a href="https://github.com/eosoukaina/image-caption-generator" target="_blank">View on GitHub</a>
+            </p>
+        </footer>
     </div>
+
+    <script>
+        // Copy caption to clipboard
+        function shareCaption() {
+            const caption = "{{ description }}";
+            navigator.clipboard.writeText(caption).then(function() {
+                // Show success message
+                const btn = event.target;
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '✓ Copied!';
+                btn.style.background = 'linear-gradient(135deg, var(--success) 0%, #059669 100%)';
+                
+                setTimeout(function() {
+                    btn.innerHTML = originalText;
+                    btn.style.background = '';
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Failed to copy:', err);
+                alert('Failed to copy caption');
+            });
+        }
+
+        // Animate caption on load
+        window.addEventListener('load', function() {
+            const caption = document.querySelector('.caption-text');
+            caption.style.opacity = '0';
+            setTimeout(function() {
+                caption.style.transition = 'opacity 1s ease-in';
+                caption.style.opacity = '1';
+            }, 300);
+        });
+    </script>
 </body>
 </html>

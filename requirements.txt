@@ -1,0 +1,19 @@
+# Core Dependencies
+Flask==2.3.3
+Werkzeug==2.3.7
+
+# Deep Learning
+tensorflow==2.13.0
+keras==2.13.1
+numpy==1.24.3
+Pillow==10.0.0
+
+# Utilities
+python-dotenv==1.0.0
+gunicorn==21.2.0
+
+# Development
+pytest==7.4.0
+pytest-flask==1.2.0
+black==23.7.0
+flake8==6.1.0

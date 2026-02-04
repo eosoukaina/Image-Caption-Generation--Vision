@@ -3,18 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Upload</title>
+    <meta name="description" content="AI-powered image caption generator using deep learning (CNN + LSTM)">
+    <title>Image Caption Generator - AI-Powered Image Description</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <div class="container">
-        <h1>Image Caption Generator</h1>
-        <form action="/" method="POST" enctype="multipart/form-data">
-            <div class="form-group">
-                <input type="file" name="file" class="form-control-file">
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for category, message in messages %}
+                    <div class="flash {{ category }}">{{ message }}</div>
+                {% endfor %}
             </div>
-            <button type="submit" class="btn">Upload</button>
-        </form>
+        {% endif %}
+    {% endwith %}
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🖼️ Image Caption Generator</h1>
+            <p>AI-powered image description using Deep Learning</p>
+            <div style="margin-top: 1rem;">
+                <span class="tech-badge">CNN</span>
+                <span class="tech-badge">LSTM</span>
+                <span class="tech-badge">Xception</span>
+                <span class="tech-badge">TensorFlow</span>
+            </div>
+        </header>
+
+        <!-- Upload Section -->
+        <section class="upload-section">
+            <form action="/upload" method="POST" enctype="multipart/form-data" id="uploadForm">
+                <div class="upload-zone" id="uploadZone">
+                    <div class="upload-icon">📸</div>
+                    <h3>Upload Your Image</h3>
+                    <p>Drag and drop or click to browse</p>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary);">
+                        Supported formats: JPG, PNG, GIF, WEBP (Max 16MB)
+                    </p>
+                    
+                    <div class="file-input-wrapper">
+                        <input type="file" name="file" id="fileInput" accept="image/*" required>
+                        <label for="fileInput" class="file-label">Choose File</label>
+                    </div>
+                    
+                    <div id="fileName" class="file-name"></div>
+                </div>
+                
+                <div style="text-align: center;">
+                    <button type="submit" class="btn" id="submitBtn">
+                        Generate Caption
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🧠</div>
+                <h3>Deep Learning</h3>
+                <p>Powered by CNN and LSTM neural networks for accurate image understanding</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Fast Processing</h3>
+                <p>Get your image captions in seconds with optimized model inference</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>High Accuracy</h3>
+                <p>Trained on Flickr8K dataset with 40,000+ image-caption pairs</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Built with TensorFlow, Keras & Flask | 
+                <a href="https://github.com/eosoukaina/image-caption-generator" target="_blank">View on GitHub</a>
+            </p>
+        </footer>
     </div>
+
+    <script>
+        // File input handling
+        const fileInput = document.getElementById('fileInput');
+        const fileName = document.getElementById('fileName');
+        const uploadZone = document.getElementById('uploadZone');
+        const submitBtn = document.getElementById('submitBtn');
+
+        fileInput.addEventListener('change', function(e) {
+            if (e.target.files.length > 0) {
+                const file = e.target.files[0];
+                fileName.textContent = `Selected: ${file.name}`;
+                
+                // Preview image
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    uploadZone.style.backgroundImage = `linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url(${event.target.result})`;
+                    uploadZone.style.backgroundSize = 'cover';
+                    uploadZone.style.backgroundPosition = 'center';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Drag and drop
+        uploadZone.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            uploadZone.style.borderColor = 'var(--primary-light)';
+        });
+
+        uploadZone.addEventListener('dragleave', function(e) {
+            e.preventDefault();
+            uploadZone.style.borderColor = 'var(--primary-color)';
+        });
+
+        uploadZone.addEventListener('drop', function(e) {
+            e.preventDefault();
+            uploadZone.style.borderColor = 'var(--primary-color)';
+            
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                fileInput.files = files;
+                fileInput.dispatchEvent(new Event('change'));
+            }
+        });
+
+        // Form submission
+        document.getElementById('uploadForm').addEventListener('submit', function() {
+            submitBtn.innerHTML = '<span class="loading"></span> Processing...';
+            submitBtn.disabled = true;
+        });
+    </script>
 </body>
 </html>
