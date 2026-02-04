@@ -357,8 +357,6 @@ docker run -p 8080:8080 image-caption-generator
 - **Google Cloud Run**: Containerized deployment
 - **Azure App Service**: Web app deployment
 
-
-
 ---
 ## Getting Started  
 
@@ -376,7 +374,6 @@ cd <project-directory>
 ```sh
 python app.py
 ```
-<div align="center">
 
 ---
 ## 🤝 Contributing
@@ -426,7 +423,8 @@ For questions or suggestions, feel free to reach out :
 - 🐙 GitHub: [@eosoukaina](https://github.com/eosoukaina)
 
 ---
-  
+</div>
+
 **⭐ Star this repository if you find it helpful!**
 
 </div>  
